@@ -6,7 +6,7 @@ import {HiddenCard} from './HiddenCard'
 import {killers, weapons, rooms} from './killers'
 
 import './card.css'
-export const Game = () => {
+export const Game = ({game, setGame}) => {
 
     const [clicked, setClicked] = useState(false)
     const [tapped, setTapped] = useState(false)
@@ -15,26 +15,28 @@ export const Game = () => {
     const [room, setRoom] = useState({})
 
     const handleKiller = () => {
-        setKiller(choosing(killers))
+        setGame({killer:choosing(killers), weapon:game.weapon, room:game.room})
     }
 
     const handleWeapon = () => {
-        setWeapon(choosing(weapons))
+        setGame({killer:game.killer, weapon:choosing(weapons), room:game.room})
     }
     const handleRoom = () => {
-        setRoom(choosing(rooms))
+        setGame({killer:game.killer, weapon:game.weapon, room:choosing(rooms)})
     }
+
+
   return (
       <div>
 
     <div onClick={handleKiller}>
-    {killer ? <Card info = {killer} /> : <HiddenCard title="killer" /> }
+    {(game.killer !== "") ? <Card info = {game.killer} /> : <HiddenCard title="killer" /> }
     </div>
     <div onClick={handleWeapon}>
-    {killer ? <Card info = {weapon} /> : <HiddenCard title="weapon" /> }
+    {(game.weapon !== "" )? <Card info = {game.weapon} /> : <HiddenCard title="weapon" /> }
     </div>
     <div onClick={handleRoom}>
-    {killer ? <Card info = {room} /> : <HiddenCard title="room" /> }
+    {(game.room !== "" ) ? <Card info = {game.room} /> : <HiddenCard title="room" /> }
     </div>
 
     <Link to={`/winning`}>

@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom'
 import {Game} from 'components/Game'
 import {Winning} from 'components/Winning'
 export const App = () => {
+  const [game, setGame] = useState({killer:"", weapon: "", room:""})
 
   return (
    
@@ -11,10 +12,10 @@ export const App = () => {
     <div className = "app">
         <Switch>
             <Route path="/" exact>
-              <Game />
+              <Game game={game} setGame = {setGame} />
           </Route>
           <Route path="/winning" exact>
-            <Winning />
+            <Winning info = {game} />
           </Route>
       </Switch>
       </div>
