@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import {Card} from './components/Card'
-import {killers, weapons, rooms} from './components/killers'
-
+import {Game} from 'components/Game'
+import {Winning} from 'components/Winning'
 export const App = () => {
+
   return (
-    <div>
-      <p>Find me in src/app.js!</p>
-      <Card info = {killers[2]} />
-      <Card info = {weapons[4]} />
-      <Card info = {rooms[1]} />
-    </div>
+   
+    <BrowserRouter>
+    <div className = "app">
+        <Switch>
+            <Route path="/" exact>
+              <Game />
+          </Route>
+          <Route path="/winning" exact>
+            <Winning />
+          </Route>
+      </Switch>
+      </div>
+    </BrowserRouter>
+
+
   )
 }
