@@ -10,19 +10,41 @@ export const Game = () => {
 
     const [clicked, setClicked] = useState(false)
     const [tapped, setTapped] = useState(false)
+    const [killer, setKiller] = useState({})
+    const [weapon, setWeapon] = useState({})
+    const [room, setRoom] = useState({})
+
+    const handleKiller = () => {
+        setKiller(choosing(killers))
+    }
+
+    const handleWeapon = () => {
+        setWeapon(choosing(weapons))
+    }
+    const handleRoom = () => {
+        setRoom(choosing(rooms))
+    }
   return (
       <div>
-    <p>Find me in src/app.js!</p>
-    <div onClick={(()=>setTapped(true))}>
-    {tapped ? <Card info = {weapons[4]} /> : <HiddenCard title="killer" /> }
+
+    <div onClick={handleKiller}>
+    {killer ? <Card info = {killer} /> : <HiddenCard title="killer" /> }
     </div>
-    <Card info = {killers[2]} />
-    {clicked ? <Card info = {weapons[4]} /> : <HiddenCard /> }
-    <Card info = {rooms[1]} />
-    <button onClick={(()=>setClicked(true))}>set True</button>
+    <div onClick={handleWeapon}>
+    {killer ? <Card info = {weapon} /> : <HiddenCard title="weapon" /> }
+    </div>
+    <div onClick={handleRoom}>
+    {killer ? <Card info = {room} /> : <HiddenCard title="room" /> }
+    </div>
+
     <Link to={`/winning`}>
             <h2>Reveal crime</h2>
           </Link>
   </div>
   )
+}
+const choosing = (array) => {
+    const number = Math.floor(Math.random()*array.length)
+    return array[number]
+
 }
