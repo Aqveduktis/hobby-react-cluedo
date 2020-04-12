@@ -1,10 +1,11 @@
 import React from 'react'
 
 import './card.css'
+import { FrontCard } from './styling'
 export const HiddenCard = ({title}) => {
   return (
-      <article className = "article">
+      <FrontCard>
           <h1>{title}</h1>
-      </article>
+      </FrontCard>
   )
 }

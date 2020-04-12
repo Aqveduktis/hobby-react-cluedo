@@ -1,24 +1,2 @@
-.game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
-  @media screen and (min-width: 576px){
- 
-    .game {
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-  @media screen and (min-width: 992px){
- 
-    .game{
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: space-between;
-    }
-  }
+
   

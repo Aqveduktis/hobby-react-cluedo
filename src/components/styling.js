@@ -4,7 +4,11 @@ import {device} from './sizes'
 
 export const Page = styled.div`
 max-width: 370px;
-margin: 20px auto; 
+margin: 20px auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center; 
 
 @media ${device.mobileM} { 
     max-width: 420px;
@@ -43,6 +47,7 @@ width: 200px;
 height: 40px;
 background-color: #ae4951;
 color: white;
+margin: 20px;
 
 &:disabled{
 background-color: #b98d72;
@@ -52,4 +57,19 @@ background-color: #b98d72;
 }
 
 `
+export const FrontCard = styled.article`
+width: 200px;
+height: 300px;
+margin: 20px;
+padding: 20px;
+background-color: #57233a;
+background-color:${props => props.color}; 
+border: 2px solid #b98d72;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+
+`
+
 
