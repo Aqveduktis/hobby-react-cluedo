@@ -4,15 +4,9 @@ import {Link} from 'react-router-dom'
 import {Card} from './Card'
 import {HiddenCard} from './HiddenCard'
 import {killers, weapons, rooms} from './killers'
-
+import {Board, StyledButton} from './styling'
 import './card.css'
 export const Game = ({game, setGame}) => {
-
-    const [clicked, setClicked] = useState(false)
-    const [tapped, setTapped] = useState(false)
-    const [killer, setKiller] = useState({})
-    const [weapon, setWeapon] = useState({})
-    const [room, setRoom] = useState({})
 
     const handleKiller = () => {
         setGame({killer:choosing(killers), weapon:game.weapon, room:game.room})
@@ -27,22 +21,24 @@ export const Game = ({game, setGame}) => {
 
 
   return (
-      <div>
-
-    <div onClick={handleKiller}>
-    {(game.killer !== "") ? <Card info = {game.killer} /> : <HiddenCard title="killer" /> }
-    </div>
-    <div onClick={handleWeapon}>
-    {(game.weapon !== "" )? <Card info = {game.weapon} /> : <HiddenCard title="weapon" /> }
-    </div>
-    <div onClick={handleRoom}>
-    {(game.room !== "" ) ? <Card info = {game.room} /> : <HiddenCard title="room" /> }
-    </div>
-
-    <Link to={`/winning`}>
-            <h2>Reveal crime</h2>
-          </Link>
-  </div>
+      <>
+      <Board>
+        <div onClick={handleKiller}>
+        {(game.killer !== "") ? <Card info = {game.killer} /> : <HiddenCard title="killer" /> }
+        </div>
+        <div onClick={handleWeapon}>
+        {(game.weapon !== "" )? <Card info = {game.weapon} /> : <HiddenCard title="weapon" /> }
+        </div>
+        <div onClick={handleRoom}>
+        {(game.room !== "" ) ? <Card info = {game.room} /> : <HiddenCard title="room" /> }
+        </div>
+      </Board>
+      <StyledButton>
+        <Link to={`/winning`}>
+          <h2>Reveal crime</h2>
+        </Link>
+      </StyledButton>
+  </>
   )
 }
 const choosing = (array) => {

@@ -3,22 +3,26 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import {Game} from 'components/Game'
 import {Winning} from 'components/Winning'
+import {Page} from 'components/styling'
+
+
+
 export const App = () => {
   const [game, setGame] = useState({killer:"", weapon: "", room:""})
 
   return (
    
     <BrowserRouter>
-    <div className = "app">
+    <Page>
         <Switch>
             <Route path="/" exact>
               <Game game={game} setGame = {setGame} />
           </Route>
           <Route path="/winning" exact>
-            <Winning info = {game} />
+            <Winning game = {game} setGame={setGame} />
           </Route>
       </Switch>
-      </div>
+      </Page>
     </BrowserRouter>
 
 
