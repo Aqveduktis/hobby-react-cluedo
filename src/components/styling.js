@@ -63,12 +63,13 @@ height: 300px;
 margin: 20px;
 padding: 20px;
 background-color: #57233a;
+background: linear-gradient(45deg, rgba(125,17,40,1) 0%, rgba(60,9,25,1) 100%);
 background-color:${props => props.color}; 
 border: 2px solid #b98d72;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: space-around;
+justify-content: space-between;
 
 `
 

@@ -7,10 +7,12 @@ export const Winning = ({game, setGame}) => {
   return (
       <article>
           <h1>You won!</h1>
-          <p>{game.killer.name}</p>
+          <p>{`${game.killer.name} murdered the victim with the ${game.weapon.name} in the ${game.room.name}`}</p>
+          <Link style={{width:'100%', height:'100%'}} to={'/'}>
           <StyledButton onClick={(()=>setGame({killer:"" , weapon:"", room:""}))}>
-         <Link style={{width:'100%', height:'100%'}} to={'/'}>go home</Link>
+         go home
          </StyledButton>
+         </Link>
       
       </article>
   )

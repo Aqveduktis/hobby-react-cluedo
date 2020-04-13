@@ -33,11 +33,13 @@ export const Game = ({game, setGame}) => {
         {(game.room !== "" ) ? <Card info = {game.room} /> : <HiddenCard title="room" /> }
         </div>
       </Board>
-      <StyledButton>
-        <Link to={`/winning`}>
+      <Link to={`/winning`}>
+      <StyledButton disabled={game.killer===""||game.weapon===""||game.room===""}>
+        
           <h2>Reveal crime</h2>
-        </Link>
+        
       </StyledButton>
+      </Link>
   </>
   )
 }
